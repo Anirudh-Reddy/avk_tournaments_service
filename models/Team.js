@@ -17,7 +17,7 @@ const teamSchema = new mongoose.Schema({
   sport: {
     type: String,
     required: true,
-    enum: ['Volleyball', 'Cricket', 'Football', 'Badminton'], // expandable
+    enum: ['Volleyball', 'Cricket', 'Football', 'Badminton'],
     default: 'Volleyball'
   },
   points: {

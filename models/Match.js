@@ -28,7 +28,7 @@ const matchSchema = new mongoose.Schema({
   status: {
     type: String,
     default: 'Scheduled',
-    enum: ['Scheduled', 'Ongoing', 'Completed']
+    enum: ['Scheduled', 'Ongoing', 'Completed', 'Cancelled'],
   }
 });
 
