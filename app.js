@@ -32,7 +32,7 @@ app.use('/api/photos', photoRoutes);
 
 // Health Check
 app.get('/', (req, res) => {
-  res.send('AVK Tournament API is up and running');
+  res.send('AVK iVL Tournament API is up and running');
 });
 
 module.exports = app;
