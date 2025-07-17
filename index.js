@@ -3,7 +3,12 @@ import express from 'express';
 import { connectDB } from './src/config/db.js';
 import teamRoutes from './src/routes/teamRoutes.js';
 import matchRoutes from './src/routes/matchRoutes.js';
-// other route imports...
+import cors from "cors";
+
+app.use(cors({
+  origin: 'https://avk-tournaments.vercel.app',
+}));
+
 
 dotenv.config();
 
