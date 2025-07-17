@@ -1,7 +1,11 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
+import express from 'express';
+import cors from 'cors';
+import * as dotenv from 'dotenv';
+import { connectDB } from "./src/config/db.js";
+import teamRoutes from './src/routes/teamRoutes.js';
+import matchRoutes from './src/routes/matchRoutes.js';
+import announcementRoutes from './src/routes/announcementRoutes.js';
+import photoRoutes from './src/routes/photo.routes.js';
 
 // Load environment variables
 dotenv.config();
@@ -17,13 +21,6 @@ app.use(cors());
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-
-// Import Routes
-const teamRoutes = require('./routes/teamRoutes');
-const matchRoutes = require('./routes/matchRoutes');
-const announcementRoutes = require('./routes/announcementRoutes');
-const photoRoutes = require('./routes/photo.routes');
-
 // Mount Routes
 app.use('/api/teams', teamRoutes);
 app.use('/api/matches', matchRoutes);
@@ -35,4 +32,5 @@ app.get('/', (req, res) => {
   res.send('AVK iVL Tournament API is up and running');
 });
 
-module.exports = app;
+// ✅ Export app
+export default app;

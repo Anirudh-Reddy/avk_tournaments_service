@@ -1,7 +1,6 @@
-const Announcement = require('../models/Announcement');
-
+import Announcement from '../models/Announcement.js';
 // GET all announcements
-exports.getAllAnnouncements = async (req, res) => {
+export const getAllAnnouncements = async (req, res) => {
   try {
     const announcements = await Announcement.find().sort({ createdAt: -1 });
     res.json(announcements);
@@ -11,7 +10,7 @@ exports.getAllAnnouncements = async (req, res) => {
 };
 
 // POST create announcement
-exports.createAnnouncement = async (req, res) => {
+export const createAnnouncement = async (req, res) => {
   try {
     const { message, sport, createdBy } = req.body;
 

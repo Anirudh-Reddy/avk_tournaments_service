@@ -1,7 +1,8 @@
-const http = require('http');
-const dotenv = require('dotenv');
-const { Server } = require('socket.io');
-const app = require('./app');
+import http from 'http';
+import dotenv from 'dotenv';
+import { Server } from 'socket.io';
+import app from './app.js'; // ✅ Correct default import
+import socketHandler from './src/socket/socketHandler.js'; // ✅ Must be a default export
 
 // Load environment variables
 dotenv.config();
@@ -17,8 +18,8 @@ const io = new Server(server, {
   }
 });
 
-// Real-time socket handler
-require('./socket/socketHandler')(io);
+// ✅ Pass Socket.IO instance to your handler
+socketHandler(io);
 
 // Start server
 const PORT = process.env.PORT || 3000;

@@ -1,6 +1,6 @@
-const Photo = require('../models/photo.model');
+import Photo from '../models/photo.model.js';
 
-exports.uploadPhoto = async (req, res) => {
+export const uploadPhoto = async (req, res) => {
   const { image, caption } = req.body;
   if (!image) return res.status(400).json({ error: 'Image is required' });
 
@@ -12,7 +12,7 @@ exports.uploadPhoto = async (req, res) => {
   }
 };
 
-exports.getPhotos = async (req, res) => {
+export const getPhotos = async (req, res) => {
   try {
     const photos = await Photo.find().sort({ uploadedAt: -1 });
     res.status(200).json(photos);

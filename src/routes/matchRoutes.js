@@ -1,10 +1,7 @@
-const express = require('express');
+import express from 'express';
+
 const router = express.Router();
-const {
-  getAllMatches,
-  createMatch,
-  updateMatchScore
-} = require('../controllers/matchController');
+import { getAllMatches, createMatch, updateMatchScore } from '../controllers/matchController.js'
 
 // GET all matches
 router.get('/', getAllMatches);
@@ -15,4 +12,4 @@ router.post('/', createMatch);
 // PUT update match score & status
 router.put('/:id/score', updateMatchScore);
 
-module.exports = router;
+export default router;

@@ -1,8 +1,7 @@
-const Match = require('../models/Match');
-const Team = require('../models/Team');
+import Match from '../models/Match.js';
 
 // GET all matches
-exports.getAllMatches = async (req, res) => {
+export const getAllMatches = async (req, res) => {
   try {
     const matches = await Match.find()
       .populate('teamA teamB')
@@ -15,7 +14,7 @@ exports.getAllMatches = async (req, res) => {
 };
 
 // POST create new match
-exports.createMatch = async (req, res) => {
+export const createMatch = async (req, res) => {
   try {
     const { teamA, teamB, date, sport, scoreA, scoreB, status } = req.body;
     console.log(req.body)
@@ -41,7 +40,7 @@ exports.createMatch = async (req, res) => {
 
 
 // PUT update score
-exports.updateMatchScore = async (req, res) => {
+export const updateMatchScore = async (req, res) => {
   try {
     const { id } = req.params;
     const { scoreA, scoreB, status } = req.body;

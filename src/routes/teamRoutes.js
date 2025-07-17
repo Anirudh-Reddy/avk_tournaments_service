@@ -1,10 +1,10 @@
-const express = require('express');
+import express from 'express';
+
 const router = express.Router();
-const {
-  getAllTeams,
+
+import { getAllTeams,
   createTeam,
-  updateTeamPoints
-} = require('../controllers/teamController');
+  updateTeamPoints } from '../controllers/teamController.js';
 
 // GET all teams
 router.get('/', getAllTeams);
@@ -15,4 +15,4 @@ router.post('/', createTeam);
 // PUT update team points
 router.put('/:id/points', updateTeamPoints);
 
-module.exports = router;
+export default router;

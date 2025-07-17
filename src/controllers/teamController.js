@@ -1,7 +1,7 @@
-const Team = require('../models/Team');
+import Team from '../models/Team.js';
 
 // GET all teams
-exports.getAllTeams = async (req, res) => {
+export const getAllTeams = async (req, res) => {
   try {
     const teams = await Team.find().sort({ createdAt: -1 });
     res.json(teams);
@@ -11,7 +11,7 @@ exports.getAllTeams = async (req, res) => {
 };
 
 // POST create a new team
-exports.createTeam = async (req, res) => {
+export const createTeam = async (req, res) => {
   try {
     const { name, players, sport } = req.body;
 
@@ -27,7 +27,7 @@ exports.createTeam = async (req, res) => {
 };
 
 // PUT update team points
-exports.updateTeamPoints = async (req, res) => {
+export const updateTeamPoints = async (req, res) => {
   try {
     const { id } = req.params;
     const { points } = req.body;

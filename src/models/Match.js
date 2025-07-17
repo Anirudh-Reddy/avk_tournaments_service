@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const matchSchema = new mongoose.Schema({
   teamA: {
@@ -32,4 +32,6 @@ const matchSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Match', matchSchema);
+const MatchSchema = mongoose.model('Match', matchSchema);
+
+export default MatchSchema
